@@ -1,4 +1,4 @@
-# GA4-Shopify-DataLayer-
+# GA4-Shopify-DataLayer
 
 
 1. Datalayer building
