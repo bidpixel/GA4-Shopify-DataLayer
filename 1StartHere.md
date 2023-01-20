@@ -22,7 +22,7 @@
 
 
 ## Step 4 - GTM Web Containers Import & Config
-- Import ServerContainer.json
+- Import WebContainer.json
 - Update the "C -" variables
 
 
