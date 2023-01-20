@@ -1,3 +1,5 @@
+Source: https://github.com/TechnicalWebAnalytics/dataLayer-shopify
+
 # Shopify Data Layer
 
 ## Definition
