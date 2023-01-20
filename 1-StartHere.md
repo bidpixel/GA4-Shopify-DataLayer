@@ -12,7 +12,7 @@
 
 ## Step 2 - Add DataLayer Code to Shopify
 - Follow the instructions at https://github.com/bidpixel/GA4-Shopify-DataLayer/blob/main/DataLayerInstructions.md
-- Ensure you use the two code blocks from the previous step
+- Ensure you use the two GTM code blocks from the previous step
 
 
 ## Step 3 - GTM Server Containers Import & Config
