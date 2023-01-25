@@ -11,18 +11,18 @@
 
 
 ## Step 2 - Add DataLayer Code to Shopify
-- Follow the instructions at https://github.com/bidpixel/GA4-Shopify-DataLayer/blob/main/DataLayerInstructions.md
+- Follow the instructions at to add the datalayer code to Shopify https://github.com/bidpixel/GA4-Shopify-DataLayer/blob/main/DataLayerInstructions.md
 - Ensure you use the two GTM code blocks from the previous step
 
 
 ## Step 3 - GTM Server Containers Import & Config
-- Import ServerContainer.json
+- Import ServerContainer.json https://github.com/bidpixel/GA4-Shopify-DataLayer-Server-Side/blob/main/ServerContainer.json
 - Update the "C -" variables
 - Admin > Container Settings > Add your server URL (xxx.yourdomain.com) 
 
 
 ## Step 4 - GTM Web Containers Import & Config
-- Import WebContainer.json
+- Import WebContainer.json https://github.com/bidpixel/GA4-Shopify-DataLayer-Server-Side/blob/main/WebContainer.json
 - Update the "C -" variables
 
 
