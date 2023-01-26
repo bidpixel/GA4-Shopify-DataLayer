@@ -5,36 +5,6 @@ Source: https://github.com/TechnicalWebAnalytics/dataLayer-shopify
 ## Definition
 A data layer helps you collect more accurate analytics data, that in turn allows you to better understand what potential buyers are doing on your website and where you can make improvements. It also reduces the time to implement marketing tags on a website, and reduces the need for IT involvement, leaving them to get on with implementing new features and fixing bugs.
 
-## Resources
-https://help.shopify.com/themes/liquid/objects
-
-http://www.datalayerdoctor.com/a-gentle-introduction-to-the-data-layer-for-digital-marketers/ 
-
-http://www.simoahava.com/analytics/data-layer/
-
-## Pages / Actions & Variables Guide
-
-You can access the full Pages/Actions & Variables list here: https://docs.google.com/spreadsheets/d/1SB96_v8dwNMGy-GlVJ7DkrmXrezaBYI5V6MLmD-FF8Q/edit?usp=sharing
-
-### Pages / Actions
-The Page types and descriptions the dataLayer will exist.
-
-### Variables
-All information the dataLayer is able to extract and the pages they can be extracted from.
-
-## GTM Pages & Variables Import
-If you are using GTM, you can import the `GTM-InitialSetup.json` container that sets up most of the GTM Triggers and Variables for you. This is constantly updated but if there are certain configurations that are not present please refer to the guide above and you should be able to set them up yourself. 
-
-https://github.com/TechnicalWebAnalytics/dataLayer-shopify/blob/master/GTM-InitialSetup.json
-
-To import the container in GTM navigate to Admin > Import Container.
-
-Under "Choose Container File", upload GTM-InitialSetup.json then choose whether to use a new or existing workspace. If you are unsure, it is always best to use a new workspace that can be merged into an existing workspace when you are satisfied. 
-
-Next, you are 9 times out of 10 always going to use merge > Rename conflicting tags, triggers and variables ( always use Rename to be safe ). If you aren't sure why you should use Overwrite, then you most definitely shouldn't be using it. 
-
-You can get more information on the changes by clicking on "View Detailed Changes". Anything that is renamed will have "_import_" appended to the title. 
-
 ## Integration Instructions
 
 Keep note that this is a base template that attempts to exploit Shopify’s data rendering capabilities and create an ease of integration for dataLayers that can be reused across all Shopify sites. Nonetheless, each site could carry variations that may not be completely compatible with this template. There may also be some areas of data we may have missed, may be a new configuration, or we wouldn’t know is necessary for your efforts. It is highly recommended to review the entire implementation and make your own configurations if needed.
