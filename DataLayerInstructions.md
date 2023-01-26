@@ -133,4 +133,4 @@ customBindings = {
 **Prerequisite Library**
 * These are already included in the dataLayer build.
   
-5. **Review, Test, Done :)**
+**Review, Test, Done :)**
