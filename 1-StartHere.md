@@ -16,7 +16,7 @@
 
 
 ## Step 3 - GTM Server Containers Import & Config
-- Import BidPixelServerContainer.json [https://github.com/bidpixel/GA4-Shopify-DataLayer-Server-Side/blob/main/ServerContainer.json](https://github.com/bidpixel/GA4-Shopify-DataLayer-Server-Side/blob/main/BidPixelServerContainer.json)
+- Import BidPixelServerContainer.json https://github.com/bidpixel/GA4-Shopify-DataLayer-Server-Side/blob/main/BidPixelServerContainer.json
 - Update the "C -" variables
 - Admin > Container Settings > Add your server URL (xxx.yourdomain.com) 
 
