@@ -22,7 +22,7 @@
 
 
 ## Step 4 - GTM Web Containers Import & Config
-- Import WebContainer.json https://github.com/bidpixel/GA4-Shopify-DataLayer-Server-Side/blob/main/WebContainer.json
+- Import WebContainer.json https://github.com/bidpixel/GA4-Shopify-DataLayer-Server-Side/blob/main/BidPixelWebContainer.json
 - Update the "C -" variables
 
 
