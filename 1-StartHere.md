@@ -11,7 +11,8 @@
 
 
 ## Step 2 - Add DataLayer Code to Shopify
-- Follow the instructions at to add the datalayer code to Shopify https://github.com/bidpixel/GA4-Shopify-DataLayer/blob/main/DataLayerInstructions.md
+- Follow the steps here to add the datalayer code to Shopify https://github.com/bidpixel/GA4-Shopify-DataLayer/blob/main/DataLayerInstructions.md
+- Use this code https://github.com/bidpixel/GA4-Shopify-DataLayer-Server-Side/blob/main/dataLayer-allPages.js
 - Ensure you use the two GTM code blocks from the previous step
 
 
