@@ -53,7 +53,7 @@
               if (type === 'PageView') {
                   dataLayer.push({
                       'event': 'page_view_gtm',
-                      'event_id': eventId,
+                      'fb_event_id': eventId,
                       'currency': window.ShopifyAnalytics.meta.currency,
                       'page_type': window.ShopifyAnalytics.meta.page ? window.ShopifyAnalytics.meta.page.pageType : '',
                       'customer_id': ShopifyAnalytics.meta.page.customerId ? ShopifyAnalytics.meta.page.customerId : '',
@@ -63,7 +63,7 @@
               if (type === 'ViewContent' || type === 'AddToCart') {
                   dataLayer.push({
                       'event': type === 'ViewContent' ? 'Viewed Product' : 'Added Product',
-                      'event_id': eventId,
+                      'fb_event_id': eventId,
                       'category': data['cd[content_category]'],
                       'name': data['cd[content_name]'],
                       'price': parseInt(data['cd[value]']),
