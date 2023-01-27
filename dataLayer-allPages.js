@@ -1,21 +1,5 @@
 <script>
-  /**********************
-  * DATALAYER ARCHITECTURE: SHOPIFY
-  * DEFINITION: A data layer helps you collect more accurate analytics data, that in turn allows you to better understand what potential buyers are doing on your website and where you can make improvements. It also reduces the time to implement marketing tags on a website, and reduces the need for IT involvement, leaving them to get on with implementing new features and fixing bugs.
 
-  * RESOURCES:
-  * http://www.datalayerdoctor.com/a-gentle-introduction-to-the-data-layer-for-digital-marketers/
-  * http://www.simoahava.com/analytics/data-layer/
-
-  * EXTERNAL DEPENDENCIES:
-  * jQuery
-  * jQuery Cookie Plugin v1.4.1 - https://github.com/carhartl/jquery-cookie
-  * cartjs - https://github.com/discolabs/cartjs
-
-  * DataLayer Architecture: Shopify v1.2
-  * COPYRIGHT 2021
-  * LICENSES: MIT ( https://opensource.org/licenses/MIT )
-  */
 
   /**********************
   * PRELOADS
@@ -28,55 +12,80 @@
       document.head.appendChild(jqueryScript);
   }
 
-  /**********************
-  * FB EVENT ID
-  * Override Image onload to capture FB Event ID 
-  ***********************/
+ /**********************
+ * FB EVENT ID
+ * Override Image onload to capture FB Event ID
+ ***********************/
 
-  OriginalImage = Image;
-  Image = function () {
-      let oi = new OriginalImage();
-      oi.onerror = function () {
-          function getJsonFromUrl(url) {
-              var query = url.substr(1);
-              var result = {};
-              query.split("&").forEach(function (part) {
-                  var item = part.split("=");
-                  result[item[0]] = decodeURIComponent(item[1]);
-              });
-              return result;
-          }
-          if (this.src.indexOf('facebook.com/tr/') != -1) {
-              var data = getJsonFromUrl(this.src);
-              var type = data.ev;
-              var eventId = data.eid;
-              if (type === 'PageView') {
-                  dataLayer.push({
-                      'event': 'page_view_gtm',
-                      'fb_event_id': eventId,
-                      'currency': window.ShopifyAnalytics.meta.currency,
-                      'page_type': window.ShopifyAnalytics.meta.page ? window.ShopifyAnalytics.meta.page.pageType : '',
-                      'customer_id': ShopifyAnalytics.meta.page.customerId ? ShopifyAnalytics.meta.page.customerId : '',
-                      'product': window.ShopifyAnalytics.meta.product ? window.ShopifyAnalytics.meta.product : {},
-                  });
-              }
-              if (type === 'ViewContent' || type === 'AddToCart') {
-                  dataLayer.push({
-                      'event': type === 'ViewContent' ? 'Viewed Product' : 'Added Product',
-                      'fb_event_id': eventId,
-                      'category': data['cd[content_category]'],
-                      'name': data['cd[content_name]'],
-                      'price': parseInt(data['cd[value]']),
-                      'productId': data['cd[content_ids]'],
-                      'currency': data['cd[currency]'],
-                      'content_type': data['cd[content_type]'],
-                      'customer_id': ShopifyAnalytics.meta.page.customerId ? ShopifyAnalytics.meta.page.customerId : '',
-                  });
-              }
-          }
-      };
-      return oi;
-  };
+OriginalImage = Image
+Image = function () {
+	let oi = new OriginalImage()
+	oi.onerror = function () {
+		function getJsonFromUrl(url) {
+			var query = url.substr(1)
+			var result = {}
+			query.split('&').forEach(function (part) {
+				var item = part.split('=')
+				result[item[0]] = decodeURIComponent(item[1])
+			})
+			return result
+		}
+		if (this.src.indexOf('facebook.com/tr/') != -1) {
+			var data = getJsonFromUrl(this.src)
+			var type = data.ev
+			var eventId = data.eid
+			if (type === 'PageView') {
+				dataLayer.push({
+					event: 'page_view_gtm',
+					fb_event_id: eventId,
+					currency: window.ShopifyAnalytics.meta.currency,
+					page_type: window.ShopifyAnalytics.meta.page
+						? window.ShopifyAnalytics.meta.page.pageType
+						: '',
+					customer_id: ShopifyAnalytics.meta.page.customerId
+						? ShopifyAnalytics.meta.page.customerId
+						: '',
+					product: window.ShopifyAnalytics.meta.product
+						? window.ShopifyAnalytics.meta.product
+						: {},
+				})
+			}
+			if (type === 'ViewContent' || type === 'AddToCart') {
+				dataLayer.push({
+					event:
+						type === 'ViewContent'
+							? 'Viewed Product'
+							: 'Added Product',
+					fb_event_id: eventId,
+					category: data['cd[content_category]'],
+					name: data['cd[content_name]'],
+					price: Number(data['cd[value]']),
+					productId: data['cd[content_ids]'],
+					currency: data['cd[currency]'],
+					content_type: data['cd[content_type]'],
+					customer_id: ShopifyAnalytics.meta.page.customerId
+						? ShopifyAnalytics.meta.page.customerId
+						: '',
+				})
+			}
+			if (type === 'Purchase') {
+				dataLayer.push({
+					event: 'purchase',
+					fb_event_id: eventId,
+					productIds: data['cd[content_ids]'],
+					content_type: data['cd[content_type]'],
+					currency: data['cd[currency]'],
+					price: Number(data['cd[value]']),
+					quantity: parseInt(data['cd[num_items]']),
+					customer_id: ShopifyAnalytics.meta.page.customerId
+						? ShopifyAnalytics.meta.page.customerId
+						: '',
+				})
+			}
+		}
+	}
+	return oi
+};
 
   __DL__jQueryinterval = setInterval(function(){
       // wait for jQuery to load & run script after jQuery has loaded
